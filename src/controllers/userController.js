@@ -1,6 +1,10 @@
 import User from '../models/userModel.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import { SECRET } from '../config.js'
+
+
+
 
 export const getUsers = async (req, res) => {
     try {
@@ -60,7 +64,7 @@ export const validate = async (req, res) => {
         };
 
         
-        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
+        const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "1h" });
 
         
         console.log('Generated Token:', token);
@@ -79,4 +83,4 @@ export const validate = async (req, res) => {
 };
 
 
-console.log('JWT_SECRET:', process.env.JWT_SECRET);
+console.log('SECRET:', process.env.SECRET);
