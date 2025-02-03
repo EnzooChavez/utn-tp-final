@@ -2,7 +2,7 @@ import Product from '../models/productModel.js'
 
 export const getProducts = async (req, res) => {
     try {
-        const products = await Product.find()
+        const products = await Product.find().populate("category") // aca el populate me sirve para darme info mas completa en el get o sea en el llamado
         if (products.length === 0) {
             return res.status(204).json({message: "No products found"})
         }
