@@ -1,10 +1,10 @@
-# 📌 Trabajo Final UTN - Diplomatura Web Full Stack
+# 🌐 Trabajo Final UTN - Diplomatura Web Full Stack
 
 Este proyecto es una API REST desarrollada como trabajo final para la Diplomatura en Desarrollo Web Full Stack de la UTN. La API permite administrar operaciones CRUD de los siguientes modelos:
 
-- **User**
-- **Product**
-- **Category**
+👤 **User** 
+📦 **Product**
+📁 **Category**
 
 ## 🚀 Tecnologías utilizadas
 
@@ -58,14 +58,19 @@ Ejecuta el siguiente comando para iniciar el servidor en modo desarrollo:
 ### **🔹 User**
 - `GET /api/user/get` - Obtener todos los usuarios
 - `POST /api/user/create` - Crear un nuevo usuario
+- `POST /api/user/login` - Iniciar sesión
 
 ### **🔹 Product**
-- `GET /api/product/get` - Obtener todos los productos
+- `GET /api/product/get` - Obtener todos los productos (con token!)
 - `POST /api/product/create` - Crear un nuevo producto
+- `DELETE /api/product/:id` - Eliminar un producto
+- `PUT /api/product/:id` - Actualizar un producto
 
 ### **🔹 Category**
 - `GET /api/category/get` - Obtener todas las categorías
 - `POST /api/category/create` - Crear una nueva categoría
+- `DELETE /api/category/:id` - Eliminar una categoría
+- `PUT /api/category/:id` - Actualizar una categoría
 
 ---
 

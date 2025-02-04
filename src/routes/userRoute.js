@@ -7,6 +7,10 @@ userRoute.get("/get", getUsers);
 userRoute.post("/create", createUsers);
 userRoute.post("/login", validate);
 
+
+
+
+
 export default userRoute;
 
 

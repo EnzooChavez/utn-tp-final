@@ -36,3 +36,45 @@ export const createProduct = async (req, res) => {
         return res.status(500).json({message: "Internal server Error", error })
     }
 }
+
+//
+
+export const deleteProduct = async (req, res) => {
+    try {
+    const { id } = req.params;
+    const product = await Product.findById(id);
+
+    if (!product) {
+        return res.status(404).json({ message: "Product not found" });
+    }
+    await Product.findByIdAndDelete(id);
+    return res.status(200).json({ message: "Product deleted successfully" });
+
+    } catch (error) {
+    return res.status(500).json({ message: "Internal server error", error: error.message });
+    }
+};
+
+export const updateProduct = async (req, res) => {
+    try {
+    const { id } = req.params;
+    const { name, description, price, categoryId } = req.body;
+
+    const product = await Product.findById(id);
+    if (!product) {
+        return res.status(404).json({ message: "Product not found" });
+    }
+
+    product.name = name || product.name;
+    product.description = description || product.description;
+    product.price = price || product.price;
+    product.category = categoryId || product.category;
+
+    const updatedProduct = await product.save();
+
+    return res.status(200).json(updatedProduct); 
+    
+    } catch (error) {
+    return res.status(500).json({ message: "Internal server error", error: error.message });
+    }
+};
